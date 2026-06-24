@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 
 // CORS: Allow your frontend
-const allowedOrigins = ['https://nbc-frontend-n9rv.vercel.app'];
+const allowedOrigins = ['https://nbc-frontend-zx97.vercel.app'];
 // Add your deployed frontend URL when hosted
 // allowedOrigins.push('https://your-frontend-domain.com');
 
