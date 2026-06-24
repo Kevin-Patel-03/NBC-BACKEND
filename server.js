@@ -14,10 +14,12 @@ const PORT = process.env.PORT || 3000;
 // ---------- SECURITY MIDDLEWARE ----------
 app.use(helmet());
 
-// CORS: Allow your frontend
-const allowedOrigins = ['https://nbc-frontend-n9rv.vercel.app'];
-// Add your deployed frontend URL when hosted
-// allowedOrigins.push('https://your-frontend-domain.com');
+// 🔥 FIXED CORS: Allow your frontend
+const allowedOrigins = [
+  'http://localhost:3001', 
+  'http://127.0.0.1:3001',
+  'https://nbc-frontend-zx97.vercel.app'  // 🔥 ADD YOUR FRONTEND URL
+];
 
 app.use(cors({
   origin: function(origin, callback) {
@@ -36,10 +38,6 @@ const limiter = rateLimit({
   message: 'Too many requests, please try again after an hour.',
 });
 app.use('/api/', limiter);
-
-app.get('/api/categories', (req, res) => {
-  res.json(categories);
-});
 
 app.use(express.json({ limit: '10kb' }));
 
